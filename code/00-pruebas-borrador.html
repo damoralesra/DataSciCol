@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Space Apps Challenge</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="00-pruebas-borrador_files/libs/clipboard/clipboard.min.js"></script>
+<script src="00-pruebas-borrador_files/libs/quarto-html/quarto.js"></script>
+<script src="00-pruebas-borrador_files/libs/quarto-html/popper.min.js"></script>
+<script src="00-pruebas-borrador_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="00-pruebas-borrador_files/libs/quarto-html/anchor.min.js"></script>
+<link href="00-pruebas-borrador_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="00-pruebas-borrador_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="00-pruebas-borrador_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="00-pruebas-borrador_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="00-pruebas-borrador_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+<link href="00-pruebas-borrador_files/libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="00-pruebas-borrador_files/libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Tabla de contenido</h2>
+   
+  <ul>
+  <li><a href="#measuring-open-science" id="toc-measuring-open-science" class="nav-link active" data-scroll-target="#measuring-open-science">MEASURING OPEN SCIENCE</a></li>
+  <li><a href="#bibliotecas-y-funciones" id="toc-bibliotecas-y-funciones" class="nav-link" data-scroll-target="#bibliotecas-y-funciones">Bibliotecas y funciones</a></li>
+  <li><a href="#elsevier-scopus" id="toc-elsevier-scopus" class="nav-link" data-scroll-target="#elsevier-scopus">Elsevier Scopus</a>
+  <ul class="collapse">
+  <li><a href="#información-api-scopus" id="toc-información-api-scopus" class="nav-link" data-scroll-target="#información-api-scopus">Información API Scopus</a></li>
+  <li><a href="#biblioteca-rscopus" id="toc-biblioteca-rscopus" class="nav-link" data-scroll-target="#biblioteca-rscopus">Biblioteca <code>rscopus</code></a></li>
+  <li><a href="#temas-space-apps" id="toc-temas-space-apps" class="nav-link" data-scroll-target="#temas-space-apps">Temas Space Apps</a>
+  <ul class="collapse">
+  <li><a href="#temas" id="toc-temas" class="nav-link" data-scroll-target="#temas">6 Temas</a></li>
+  <li><a href="#total-de-papers" id="toc-total-de-papers" class="nav-link" data-scroll-target="#total-de-papers">¿Total de papers?</a></li>
+  </ul></li>
+  <li><a href="#extracción-papers" id="toc-extracción-papers" class="nav-link" data-scroll-target="#extracción-papers">Extracción papers</a></li>
+  <li><a href="#extracción-de-abstract" id="toc-extracción-de-abstract" class="nav-link" data-scroll-target="#extracción-de-abstract">Extracción de Abstract</a></li>
+  </ul></li>
+  <li><a href="#fuentes" id="toc-fuentes" class="nav-link" data-scroll-target="#fuentes">Fuentes</a></li>
+  <li><a href="#borrador" id="toc-borrador" class="nav-link" data-scroll-target="#borrador">Borrador</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Space Apps Challenge</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<p class="subtitle lead">DATASCICOL</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="measuring-open-science" class="level1">
+<h1>MEASURING OPEN SCIENCE</h1>
+<center>
+<img src="img/img1.PNG" width="800/">
+</center>
+<p><br></p>
+<ul>
+<li><a href="https://2022.spaceappschallenge.org/challenges/2022-challenges/measuring-open-science/teams/datascicol">Space Apps Challenge - MEASURING OPEN SCIENCE</a></li>
+</ul>
+</section>
+<section id="bibliotecas-y-funciones" class="level1">
+<h1>Bibliotecas y funciones</h1>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bibliotecas</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringi)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rscopus)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Funciones</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"funciones-r/01-totalRecord.R"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"funciones-r/02-infoPapersScopus.R"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"funciones-r/03-infoAffScopus.R"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Tema para gráficos</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>theme_custom <span class="ot">&lt;-</span> <span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="elsevier-scopus" class="level1">
+<h1>Elsevier Scopus</h1>
+<section id="información-api-scopus" class="level2">
+<h2 class="anchored" data-anchor-id="información-api-scopus">Información API Scopus</h2>
+<ul>
+<li><a href="https://dev.elsevier.com/documentation/ScopusSearchAPI.wadl">Documentación Scopus Search API</a></li>
+<li><a href="https://dev.elsevier.com/api_key_settings.html">Recuperación de información con API Key Scopus.</a></li>
+<li><a href="https://dev.elsevier.com/sd_article_meta_views.html">Descripción de <em>Metadata</em> Scopus</a></li>
+<li><a href="https://dev.elsevier.com/scopus.html#!/Scopus_Search/ScopusSearch">Interactive Scopus Search API</a></li>
+<li><a href="https://dev.elsevier.com/sc_search_tips.html">Tips de búsqueda en Scopus Search API</a></li>
+</ul>
+<center>
+<img src="img/img2.PNG" width="1100/">
+</center>
+</section>
+<section id="biblioteca-rscopus" class="level2">
+<h2 class="anchored" data-anchor-id="biblioteca-rscopus">Biblioteca <code>rscopus</code></h2>
+<ul>
+<li><a href="https://johnmuschelli.com/rscopus/index.html">Documentación <code>rscopus</code></a></li>
+<li><a href="https://johnmuschelli.com/rscopus/reference/scopus_search.html">Función <code>scopus_search</code></a>
+<ul>
+<li>Esta función permite extraer información desde Scopus, sin embargo, es oportuno tener en cuenta lo que se describe en la página web acerca de <a href="https://dev.elsevier.com/api_key_settings.html">recuperación de información con API Key.</a></li>
+</ul></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregando API key (se requiere registro en Elsevier Scopus)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="st">"elsevier_api_key"</span> <span class="ot">=</span> <span class="st">"4613d6354ad8908013e2e4b40c868eb3"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar API key</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>config_api <span class="ot">&lt;-</span> <span class="fu">get_api_key</span>()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracción de información asociada a la palabra "music"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># TODOS los documentos relacionados con "music"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">scopus_search</span>(<span class="at">query =</span> <span class="st">"all(music)"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">max_count =</span> <span class="dv">10</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Podemos especificar que sean búsquedas asociadas sólo a <strong>títulos</strong>:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>titulos_music <span class="ot">&lt;-</span> <span class="fu">scopus_search</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"title(music)"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_count =</span> <span class="dv">10</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>Podemos consultar los atributos de la extracción de información:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>titulos_music <span class="sc">%&gt;%</span> <span class="fu">attributes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$names
+[1] "entries"        "total_results"  "get_statements"</code></pre>
+</div>
+</div>
+<ul>
+<li>Podemos saber cuántos resultados hay en total (aún cuando sólo recuperamos 10):</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>titulos_music<span class="sc">$</span>total_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 67939</code></pre>
+</div>
+</div>
+<ul>
+<li>Podemos pasar las <code>entries</code> a dataframe con la función <code>gen_entries_to_df()</code>. Esta función devuelte 3 bases de datos:
+<ul>
+<li><code>df</code>: en esta base de datos cada fila es un paper</li>
+<li><code>prism:isbn</code></li>
+<li><code>affiliation</code>: en esta base de datos cada fila es una filiación. Es posible que un paper sea escrito por dos personas de diferentes universidades (filiaciones), entonces se repetirá la variable <code>entry_number</code>.</li>
+</ul></li>
+<li>La variable <code>entry_number</code> está presente en las tres tablas, de tal manera que esta variable nos sirve para unir las tres tablas, sin embargo, sólo es de interés unir <code>df</code> y <code>affiliation</code>.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>titulos_music<span class="sc">$</span>entries <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gen_entries_to_df</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"df"</span>]]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(entry_number, <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["entry_number"],"name":[1],"type":["chr"],"align":["left"]},{"label":["@_fa"],"name":[2],"type":["chr"],"align":["left"]},{"label":["prism:url"],"name":[3],"type":["chr"],"align":["left"]},{"label":["dc:identifier"],"name":[4],"type":["chr"],"align":["left"]},{"label":["eid"],"name":[5],"type":["chr"],"align":["left"]},{"label":["dc:title"],"name":[6],"type":["chr"],"align":["left"]},{"label":["dc:creator"],"name":[7],"type":["chr"],"align":["left"]},{"label":["prism:publicationName"],"name":[8],"type":["chr"],"align":["left"]},{"label":["prism:issn"],"name":[9],"type":["chr"],"align":["left"]},{"label":["prism:eIssn"],"name":[10],"type":["chr"],"align":["left"]},{"label":["prism:volume"],"name":[11],"type":["chr"],"align":["left"]},{"label":["prism:pageRange"],"name":[12],"type":["chr"],"align":["left"]},{"label":["prism:coverDate"],"name":[13],"type":["chr"],"align":["left"]},{"label":["prism:coverDisplayDate"],"name":[14],"type":["chr"],"align":["left"]},{"label":["prism:doi"],"name":[15],"type":["chr"],"align":["left"]},{"label":["citedby-count"],"name":[16],"type":["chr"],"align":["left"]},{"label":["prism:aggregationType"],"name":[17],"type":["chr"],"align":["left"]},{"label":["subtype"],"name":[18],"type":["chr"],"align":["left"]},{"label":["subtypeDescription"],"name":[19],"type":["chr"],"align":["left"]},{"label":["source-id"],"name":[20],"type":["chr"],"align":["left"]},{"label":["openaccess"],"name":[21],"type":["chr"],"align":["left"]},{"label":["openaccessFlag"],"name":[22],"type":["chr"],"align":["left"]},{"label":["freetoread.value.$"],"name":[23],"type":["chr"],"align":["left"]},{"label":["freetoreadLabel.value.$"],"name":[24],"type":["chr"],"align":["left"]},{"label":["pii"],"name":[25],"type":["chr"],"align":["left"]},{"label":["article-number"],"name":[26],"type":["chr"],"align":["left"]},{"label":["prism:issueIdentifier"],"name":[27],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85137991814","4":"SCOPUS_ID:85137991814","5":"2-s2.0-85137991814","6":"Investigation of Singing Voice Separation for Singing Voice Detection in Polyphonic Music","7":"Sun Y.","8":"Lecture Notes in Electrical Engineering","9":"18761100","10":"18761119","11":"923","12":"79-90","13":"2023-01-01","14":"2023","15":"10.1007/978-981-19-4703-2_7","16":"0","17":"Book Series","18":"cp","19":"Conference Paper","20":"19700186822","21":"0","22":"FALSE","23":"all","24":"All Open Access","25":"NA","26":"NA","27":"NA"},{"1":"2","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85137989460","4":"SCOPUS_ID:85137989460","5":"2-s2.0-85137989460","6":"9th Conference on Sound and Music Technology, CSMT 2021","7":"NA","8":"Lecture Notes in Electrical Engineering","9":"18761100","10":"18761119","11":"923","12":"NA","13":"2023-01-01","14":"2023","15":"NA","16":"0","17":"Book Series","18":"cr","19":"Conference Review","20":"19700186822","21":"0","22":"FALSE","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA"},{"1":"3","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85137989152","4":"SCOPUS_ID:85137989152","5":"2-s2.0-85137989152","6":"Application Design of Sports Music Mobile App Based on Rhythm Following","7":"Li R.","8":"Lecture Notes in Electrical Engineering","9":"18761100","10":"18761119","11":"923","12":"55-68","13":"2023-01-01","14":"2023","15":"10.1007/978-981-19-4703-2_5","16":"0","17":"Book Series","18":"cp","19":"Conference Paper","20":"19700186822","21":"0","22":"FALSE","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA"},{"1":"4","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85137976984","4":"SCOPUS_ID:85137976984","5":"2-s2.0-85137976984","6":"SepMLP: An All-MLP Architecture for Music Source Separation","7":"Qian J.","8":"Lecture Notes in Electrical Engineering","9":"18761100","10":"18761119","11":"923","12":"31-41","13":"2023-01-01","14":"2023","15":"10.1007/978-981-19-4703-2_3","16":"0","17":"Book Series","18":"cp","19":"Conference Paper","20":"19700186822","21":"0","22":"FALSE","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA"},{"1":"5","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85137616806","4":"SCOPUS_ID:85137616806","5":"2-s2.0-85137616806","6":"Real-Valued MUSIC for Efficient Direction of Arrival Estimation With Arbitrary Arrays: Mirror Suppression and Resolution Improvement","7":"Meng X.T.","8":"Signal Processing","9":"01651684","10":"NA","11":"202","12":"NA","13":"2023-01-01","14":"January 2023","15":"10.1016/j.sigpro.2022.108766","16":"0","17":"Journal","18":"ar","19":"Article","20":"25548","21":"0","22":"FALSE","23":"NA","24":"NA","25":"S016516842200305X","26":"108766","27":"NA"},{"1":"6","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85136929847","4":"SCOPUS_ID:85136929847","5":"2-s2.0-85136929847","6":"Perceptual Evaluation on the Man-Machine-Environment System of Music Library","7":"Zhang K.","8":"Lecture Notes in Electrical Engineering","9":"18761100","10":"18761119","11":"941 LNEE","12":"703-709","13":"2023-01-01","14":"2023","15":"10.1007/978-981-19-4786-5_98","16":"0","17":"Book Series","18":"cp","19":"Conference Paper","20":"19700186822","21":"0","22":"FALSE","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA"},{"1":"7","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85136806282","4":"SCOPUS_ID:85136806282","5":"2-s2.0-85136806282","6":"Commercial Marketing and Entrepreneurial Talent Training of the Music Industry Based on 5G Technology","7":"Sang T.","8":"Lecture Notes in Networks and Systems","9":"23673370","10":"23673389","11":"485","12":"395-419","13":"2023-01-01","14":"2023","15":"10.1007/978-3-031-08093-7_27","16":"0","17":"Book Series","18":"cp","19":"Conference Paper","20":"21100901469","21":"0","22":"FALSE","23":"NA","24":"NA","25":"NA","26":"NA","27":"NA"},{"1":"8","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85136583001","4":"SCOPUS_ID:85136583001","5":"2-s2.0-85136583001","6":"Markov-based genetic algorithm with <U+03F5>-greedy exploration for Indian classical music composition","7":"Shukla S.","8":"Expert Systems with Applications","9":"09574174","10":"NA","11":"211","12":"NA","13":"2023-01-01","14":"January 2023","15":"10.1016/j.eswa.2022.118561","16":"0","17":"Journal","18":"ar","19":"Article","20":"24201","21":"0","22":"FALSE","23":"NA","24":"NA","25":"S0957417422016268","26":"118561","27":"NA"},{"1":"9","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85136474348","4":"SCOPUS_ID:85136474348","5":"2-s2.0-85136474348","6":"Holistic Approaches to Music Genre Classification using Efficient Transfer and Deep Learning Techniques","7":"Prabhakar S.K.","8":"Expert Systems with Applications","9":"09574174","10":"NA","11":"211","12":"NA","13":"2023-01-01","14":"January 2023","15":"10.1016/j.eswa.2022.118636","16":"0","17":"Journal","18":"ar","19":"Article","20":"24201","21":"0","22":"FALSE","23":"NA","24":"NA","25":"S0957417422016815","26":"118636","27":"NA"},{"1":"10","2":"true","3":"https://api.elsevier.com/content/abstract/scopus_id/85136213551","4":"SCOPUS_ID:85136213551","5":"2-s2.0-85136213551","6":"Music Style Recognition Method Based on Computer-Aided Technology for Internet of Things","7":"Zhao J.","8":"Computer-Aided Design and Applications","9":"16864360","10":"NA","11":"20","12":"99-109","13":"2023-01-01","14":"2023","15":"10.14733/cadaps.2023.S2.99-109","16":"0","17":"Journal","18":"ar","19":"Article","20":"4700151607","21":"0","22":"FALSE","23":"NA","24":"NA","25":"NA","26":"NA","27":"S2"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<ul>
+<li>También extraemos la información de la afiliación del paper:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>titulos_music<span class="sc">$</span>entries <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gen_entries_to_df</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"affiliation"</span>]]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(entry_number, <span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["entry_number"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["@_fa"],"name":[2],"type":["chr"],"align":["left"]},{"label":["affilname"],"name":[3],"type":["chr"],"align":["left"]},{"label":["affiliation-city"],"name":[4],"type":["chr"],"align":["left"]},{"label":["affiliation-country"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"true","3":"Fudan University","4":"Shanghai","5":"China"},{"1":"3","2":"NA","3":"NA","4":"NA","5":"NA"},{"1":"3","2":"true","3":"Beijing University of Posts and Telecommunications","4":"Beijing","5":"China"},{"1":"4","2":"true","3":"Fudan University","4":"Shanghai","5":"China"},{"1":"5","2":"true","3":"Harbin Institute of Technology","4":"Harbin","5":"China"},{"1":"6","2":"true","3":"Tsinghua University","4":"Beijing","5":"China"},{"1":"7","2":"true","3":"Universiti Malaysia Kelantan","4":"Pengkalan Chepa","5":"Malaysia"},{"1":"8","2":"true","3":"Indian Institute of Technology (Indian School of Mines), Dhanbad","4":"Dhanbad","5":"India"},{"1":"9","2":"true","3":"Korea University","4":"Seoul","5":"South Korea"},{"1":"10","2":"true","3":"Zhengzhou Preschool Education College","4":"Zhengzhou","5":"China"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="temas-space-apps" class="level2">
+<h2 class="anchored" data-anchor-id="temas-space-apps">Temas Space Apps</h2>
+<section id="temas" class="level3">
+<h3 class="anchored" data-anchor-id="temas">6 Temas</h3>
+<table class="table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 34%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Inglés</th>
+<th>Español</th>
+<th>Portugués</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>phytopathology</em></td>
+<td><em>fitopatologia</em></td>
+<td><em>fitopatologia</em></td>
+</tr>
+<tr class="even">
+<td><em>environmental pollution</em></td>
+<td><em>contaminación ambiental</em></td>
+<td><em>poluição ambiental</em></td>
+</tr>
+<tr class="odd">
+<td><em>statistical mechanics</em></td>
+<td><em>mecánica estadística</em></td>
+<td><em>mecânica estatística</em></td>
+</tr>
+<tr class="even">
+<td><em>entropy</em></td>
+<td><em>entropía</em></td>
+<td><em>entropia</em></td>
+</tr>
+<tr class="odd">
+<td><em>psychoanalysis</em></td>
+<td><em>psicoanálisis</em></td>
+<td><em>psicanálise</em></td>
+</tr>
+<tr class="even">
+<td><em>music</em></td>
+<td><em>musica</em></td>
+<td><em>música</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="total-de-papers" class="level3">
+<h3 class="anchored" data-anchor-id="total-de-papers">¿Total de papers?</h3>
+<ul>
+<li>Creamos una función que nos permita extraer el total de resultados asociados a los 6 temas anteriores.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración para extracción</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>my_key <span class="ot">&lt;-</span> <span class="st">"4613d6354ad8908013e2e4b40c868eb3"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>type_search <span class="ot">&lt;-</span> <span class="st">"title"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>list_topics <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"phytopathology"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"environmental pollution"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"statistical mechanics"</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"entropy"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"psychoanalysis"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"music"</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecución de función</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">totalRecord</span>(</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">apiKey =</span> my_key,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">typeQuery =</span> type_search,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">topic =</span> list_topics,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">docType =</span> <span class="st">"All"</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="st">"1990"</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["topic"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_record"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"phytopathology","2":"134"},{"1":"environmental pollution","2":"6867"},{"1":"statistical mechanics","2":"3100"},{"1":"entropy","2":"66917"},{"1":"psychoanalysis","2":"7693"},{"1":"music","2":"61151"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<ul>
+<li>Podríamos consultar sólo los <em>Journal</em>:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">totalRecord</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">apiKey =</span> my_key,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">typeQuery =</span> type_search,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">topic =</span> list_topics,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">docType =</span> <span class="st">"J"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="st">"1990"</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["topic"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_record"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"phytopathology","2":"118"},{"1":"environmental pollution","2":"5672"},{"1":"statistical mechanics","2":"2644"},{"1":"entropy","2":"52878"},{"1":"psychoanalysis","2":"6127"},{"1":"music","2":"40021"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="extracción-papers" class="level2">
+<h2 class="anchored" data-anchor-id="extracción-papers">Extracción papers</h2>
+<ul>
+<li>Probamos la función <code>infoPapersScopus()</code> para extracción de información de papers. Esta funión retorna la base de datos de artículos y los resultados de la consulta a Scopus. Este último resultado puede ser útil para usar otras funciones de <code>rscopus</code>, por ejemplo, <code>abstract_retrieval()</code> para recuperar los resúmenes.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración para extracción</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>my_key <span class="ot">&lt;-</span> <span class="st">"4613d6354ad8908013e2e4b40c868eb3"</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>type_search <span class="ot">&lt;-</span> <span class="st">"title"</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>list_topics <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"phytopathology"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"environmental pollution"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"statistical mechanics"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"entropy"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"psychoanalysis"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"music"</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Información de papers</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>results_query <span class="ot">&lt;-</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">infoPapersScopus</span>(</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">apiKey =</span> my_key,</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">typeQuery =</span> <span class="st">"title"</span>,</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">topic =</span> list_topics,</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">docType =</span> <span class="st">"J"</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">afterYear =</span> <span class="st">"1998"</span>,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">numPapers =</span> <span class="dv">10</span>,</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">countRetrieval =</span> <span class="dv">10</span>,</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">showProgress =</span> <span class="cn">FALSE</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>results_query <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "dataPapers"  "queryScopus"</code></pre>
+</div>
+</div>
+<ul>
+<li>La siguiente tabla tiene la información de los papers:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>results_query<span class="sc">$</span>dataPapers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["entry_number"],"name":[1],"type":["chr"],"align":["left"]},{"label":["issn"],"name":[2],"type":["chr"],"align":["left"]},{"label":["doi"],"name":[3],"type":["chr"],"align":["left"]},{"label":["paper_title"],"name":[4],"type":["chr"],"align":["left"]},{"label":["paper_author"],"name":[5],"type":["chr"],"align":["left"]},{"label":["name_journal"],"name":[6],"type":["chr"],"align":["left"]},{"label":["prism_page_range"],"name":[7],"type":["chr"],"align":["left"]},{"label":["pub_date"],"name":[8],"type":["chr"],"align":["left"]},{"label":["citedby_count"],"name":[9],"type":["chr"],"align":["left"]},{"label":["aggregation_type"],"name":[10],"type":["chr"],"align":["left"]},{"label":["subtype_description"],"name":[11],"type":["chr"],"align":["left"]},{"label":["openaccess"],"name":[12],"type":["chr"],"align":["left"]},{"label":["freetoread_value"],"name":[13],"type":["chr"],"align":["left"]},{"label":["freetoread_label_value"],"name":[14],"type":["chr"],"align":["left"]},{"label":["pubmed_id"],"name":[15],"type":["chr"],"align":["left"]},{"label":["topic_search"],"name":[16],"type":["chr"],"align":["left"]},{"label":["pii"],"name":[17],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"0367973X","3":"10.1007/s42360-022-00534-4","4":"Correction to: First report of Papaya ringspot virus-watermelon strain on melon (Cucumis melo L.) in Bali, Indonesia (Indian Phytopathology, (2022), 75, 3, (911-914), 10.1007/s42360-022-00519-3)","5":"Selangga D.G.W.","6":"Indian Phytopathology","7":"923","8":"2022-09-01","9":"0","10":"Journal","11":"Erratum","12":"1","13":"all","14":"All Open Access","15":"NA","16":"phytopathology","17":"NA"},{"1":"2","2":"0031949X","3":"10.1094/PHYTO-12-20-0550.1-R","4":"Erratum: Characterization, Pathogenicity, Phylogeny, and Comparative Genomic Analysis of Pseudomonas tolaasii Strains Isolated from Various Mushrooms in China (Phytopathology (2022) 112:3 (Phytopathology) DOI: 10.1094/PHYTO-12-20-0550-R)","5":"NA","6":"Phytopathology","7":"1819-1820","8":"2022-08-01","9":"0","10":"Journal","11":"Erratum","12":"1","13":"all","14":"All Open Access","15":"NA","16":"phytopathology","17":"NA"},{"1":"3","2":"0031949X","3":"10.1094/PHYTO-04-20-0143.1-R","4":"Erratum: Identification and Characterization of Sphaerulina vaccinii sp. nov. as the Cause of Leaf Spot and Stem Canker in Lowbush Blueberry and Its Epidemiology (Phytopathology (2021) 111:9 (1568) DOI: 10.1094/PHYTO-04-20-0143-R)","5":"NA","6":"Phytopathology","7":"976","8":"2022-04-01","9":"0","10":"Journal","11":"Erratum","12":"1","13":"all","14":"All Open Access","15":"NA","16":"phytopathology","17":"NA"},{"1":"4","2":"0367973X","3":"10.1007/s42360-021-00409-0","4":"Correction to: Bio-control potential of Trichoderma spp., against Fusarium spp., the incitants of Pokkah boeng disease of sugarcane under in-vitro conditions (Indian Phytopathology, (2021), 74, 3, (691-701), 10.1007/s42360-021-00344-0)","5":"Tiwari R.","6":"Indian Phytopathology","7":"1169","8":"2021-12-01","9":"0","10":"Journal","11":"Erratum","12":"1","13":"all","14":"All Open Access","15":"NA","16":"phytopathology","17":"NA"},{"1":"5","2":"14675463","3":"10.1093/bib/bbab037","4":"Machine learning for phytopathology: From the molecular scale towards the network scale","5":"Wang Y.","6":"Briefings in Bioinformatics","7":"NA","8":"2021-09-01","9":"5","10":"Journal","11":"Review","12":"0","13":"NA","14":"NA","15":"33787847","16":"phytopathology","17":"NA"},{"1":"6","2":"09311785","3":"10.1111/jph.13025","4":"Corrigendum to: Distribution of resistance of cassava genotypes to dry, soft and black root diseases and correlation to yield parameters (Journal of Phytopathology, (2021), 169, (350–359), 10.1111/jph.12987)","5":"NA","6":"Journal of Phytopathology","7":"514","8":"2021-08-01","9":"0","10":"Journal","11":"Erratum","12":"0","13":"NA","14":"NA","15":"NA","16":"phytopathology","17":"NA"},{"1":"7","2":"0031949X","3":"10.1094/PHYTO-04-20-0116.1-R","4":"Erratum: Novel multiplex and loop-mediated isothermal amplification assays for rapid species and mating-type identification of oculimacula acuformis and o. yallundae (causal agents of cereal eyespot), and application for detection of ascospore dispersal and in planta use(Phytopathology (2021 )111:l3 DOI: 10.1094/PHYTO-04-20-0116-R)","5":"King K.M.","6":"Phytopathology","7":"1059","8":"2021-06-01","9":"0","10":"Journal","11":"Erratum","12":"1","13":"all","14":"All Open Access","15":"NA","16":"phytopathology","17":"NA"},{"1":"8","2":"09311785","3":"10.1111/jph.12976","4":"Corrigendum to: Biocontrol of strawberry fruit infected by Botrytis cinerea: Effects on the microbial communities on fruit assessed by next-generation sequencing (Journal of Phytopathology, (2018), 166, (403–411), 10.1111/jph.12700)","5":"NA","6":"Journal of Phytopathology","7":"269","8":"2021-04-01","9":"0","10":"Journal","11":"Erratum","12":"0","13":"NA","14":"NA","15":"NA","16":"phytopathology","17":"NA"},{"1":"9","2":"0367973X","3":"10.1007/s42360-020-00307-x","4":"Correction to: Distribution and association of agro-ecological factors influencing garlic rust (Puccinia allii) epidemics in Eastern Amhara, Ethiopia (Indian Phytopathology, (2021), 74, 1, (157-170), 10.1007/s42360-020-00297-w)","5":"Endalew Z.","6":"Indian Phytopathology","7":"171","8":"2021-03-01","9":"0","10":"Journal","11":"Erratum","12":"1","13":"all","14":"All Open Access","15":"NA","16":"phytopathology","17":"NA"},{"1":"10","2":"25000462","3":"10.18699/VJ21.101","4":"Revealing the diversity of Fusarium micromycetes in agroecosystems of the North Caucasus plains for replenishing the State Collection of Phytopathogenic Microorganisms of the All-Russian Scientific Research Institute of a Phytopathology","5":"Zhemchuzhina N.S.","6":"Vavilovskii Zhurnal Genetiki i Selektsii","7":"874-881","8":"2021-01-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"phytopathology","17":"NA"},{"1":"1","2":"10010742","3":"10.1016/j.jes.2022.04.023","4":"Organophosphate pesticides an emerging environmental contaminant: Pollution, toxicity, bioremediation progress, and remaining challenges","5":"Mali H.","6":"Journal of Environmental Sciences (China)","7":"234-250","8":"2023-05-01","9":"5","10":"Journal","11":"Review","12":"0","13":"NA","14":"NA","15":"NA","16":"environmental pollution","17":"S1001074222001942"},{"1":"2","2":"00489697","3":"10.1016/j.scitotenv.2022.158437","4":"The efforts of China to combat air pollution during the period of 2015–2018: A case study assessing the environmental, health and economic benefits in the Beijing-Tianjin-Hebei and surrounding “2 + 26” regions","5":"Zhao N.","6":"Science of the Total Environment","7":"NA","8":"2022-12-20","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"36057303","16":"environmental pollution","17":"S004896972205536X"},{"1":"3","2":"00108545","3":"10.1016/j.ccr.2022.214825","4":"Now and future: Development and perspectives of using polyphenol nanomaterials in environmental pollution control","5":"Cheng W.","6":"Coordination Chemistry Reviews","7":"NA","8":"2022-12-15","9":"0","10":"Journal","11":"Review","12":"0","13":"NA","14":"NA","15":"NA","16":"environmental pollution","17":"S0010854522004209"},{"1":"4","2":"00489697","3":"10.1016/j.scitotenv.2022.158286","4":"Payments for environmental services strategy for transboundary air pollution: A stochastic differential game perspective","5":"Liu J.","6":"Science of the Total Environment","7":"NA","8":"2022-12-15","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"36057307","16":"environmental pollution","17":"S0048969722053852"},{"1":"5","2":"00489697","3":"10.1016/j.scitotenv.2022.158417","4":"Water pollution and environmental policy in artisanal gold mining frontiers: The case of La Toma, Colombia","5":"Casso-Hartmann L.","6":"Science of the Total Environment","7":"NA","8":"2022-12-15","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"36055504","16":"environmental pollution","17":"S0048969722055164"},{"1":"6","2":"03605442","3":"10.1016/j.energy.2022.125279","4":"Multi-objective optimization of gas turbine combined cycle system considering environmental damage cost of pollution emissions","5":"Wang Z.","6":"Energy","7":"NA","8":"2022-12-15","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"environmental pollution","17":"S0360544222021648"},{"1":"7","2":"21904707","3":"10.1186/s12302-022-00670-8","4":"The role of natural science collections in the biomonitoring of environmental contaminants in apex predators in support of the EU’s zero pollution ambition","5":"Movalli P.","6":"Environmental Sciences Europe","7":"NA","8":"2022-12-01","9":"0","10":"Journal","11":"Note","12":"1","13":"all","14":"All Open Access","15":"NA","16":"environmental pollution","17":"NA"},{"1":"8","2":"NA","3":"10.1016/j.jobe.2022.105180","4":"Using solar energy and phase change materials to supply energy to a building to reduce environmental pollution","5":"Almojil S.F.","6":"Journal of Building Engineering","7":"NA","8":"2022-12-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"environmental pollution","17":"S2352710222011871"},{"1":"9","2":"03135926","3":"10.1016/j.eap.2022.08.008","4":"Asymmetric impacts of foreign direct investment inflows, financial development, and social globalization on environmental pollution","5":"Deng Q.S.","6":"Economic Analysis and Policy","7":"236-251","8":"2022-12-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"environmental pollution","17":"S0313592622001254"},{"1":"10","2":"00489697","3":"10.1016/j.scitotenv.2022.157807","4":"Environmental pollution impacts: Are p values over-valued?","5":"Agathokleous E.","6":"Science of the Total Environment","7":"NA","8":"2022-12-01","9":"0","10":"Journal","11":"Note","12":"0","13":"NA","14":"NA","15":"NA","16":"environmental pollution","17":"S0048969722049063"},{"1":"1","2":"NA","3":"10.1038/s41598-022-18833-1","4":"A statistical mechanics model for determining the length distribution of actin filaments under cellular tensional homeostasis","5":"Ueda Y.","6":"Scientific Reports","7":"NA","8":"2022-12-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"36002503","16":"statistical mechanics","17":"NA"},{"1":"2","2":"NA","3":"10.1038/s41534-022-00551-1","4":"Constraints on magic state protocols from the statistical mechanics of Wigner negativity","5":"Koukoulekidis N.","6":"npj Quantum Information","7":"NA","8":"2022-12-01","9":"1","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"statistical mechanics","17":"NA"},{"1":"3","2":"00034916","3":"10.1016/j.aop.2022.169086","4":"Quantum statistical mechanics of encryption: Reaching the speed limit of classical block ciphers","5":"Chamon C.","6":"Annals of Physics","7":"NA","8":"2022-11-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"statistical mechanics","17":"S0003491622001956"},{"1":"4","2":"03784371","3":"10.1016/j.physa.2022.127987","4":"Corrigendum to “Ensemble transformations in the fluctuation theory” [Physica A 585 (2022) 126430] (Physica A: Statistical Mechanics and its Applications (2022) 585, (S0378437121007032), (10.1016/j.physa.2021.126430))","5":"Shimizu S.","6":"Physica A: Statistical Mechanics and its Applications","7":"NA","8":"2022-11-01","9":"0","10":"Journal","11":"Erratum","12":"1","13":"all","14":"All Open Access","15":"NA","16":"statistical mechanics","17":"S0378437122006203"},{"1":"5","2":"16102940","3":"10.1007/s00894-022-05307-4","4":"Modelling the adsorption on oxidized carbon nanotubes using a statistical mechanics approach","5":"Alves M.O.","6":"Journal of Molecular Modeling","7":"NA","8":"2022-10-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"36109369","16":"statistical mechanics","17":"NA"},{"1":"6","2":"05779073","3":"10.1016/j.cjph.2022.08.001","4":"Spin and exchange in mixed quantum states from first principles in Feynman path integral quantum statistical mechanics representation","5":"Shevkunov S.V.","6":"Chinese Journal of Physics","7":"98-123","8":"2022-10-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"statistical mechanics","17":"S0577907322002015"},{"1":"7","2":"02179792","3":"10.1142/S0217979222300055","4":"Poincaré, Poincaré recurrence and the H -theorem: A continued reassessment of Boltzmannian statistical mechanics","5":"Weaver C.G.","6":"International Journal of Modern Physics B","7":"NA","8":"2022-09-20","9":"0","10":"Journal","11":"Article","12":"0","13":"all","14":"All Open Access","15":"NA","16":"statistical mechanics","17":"NA"},{"1":"8","2":"17518113","3":"10.1088/1751-8121/ac8381","4":"Statistical mechanics analysis of generalized multi-dimensional knapsack problems","5":"Nakamura Y.","6":"Journal of Physics A: Mathematical and Theoretical","7":"NA","8":"2022-09-16","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"statistical mechanics","17":"NA"},{"1":"9","2":"24699950","3":"10.1103/PhysRevB.106.094202","4":"Statistical mechanics of dimers on quasiperiodic Ammann-Beenker tilings","5":"Lloyd J.","6":"Physical Review B","7":"NA","8":"2022-09-01","9":"0","10":"Journal","11":"Article","12":"0","13":"all","14":"All Open Access","15":"NA","16":"statistical mechanics","17":"NA"},{"1":"10","2":"09351175","3":"10.1007/s00161-022-01129-0","4":"Statistical mechanics of rate-independent stick-slip on a corrugated surface composed of parabolic wells","5":"Giordano S.","6":"Continuum Mechanics and Thermodynamics","7":"1343-1372","8":"2022-09-01","9":"0","10":"Journal","11":"Article","12":"0","13":"all","14":"All Open Access","15":"NA","16":"statistical mechanics","17":"NA"},{"1":"1","2":"10050302","3":"10.1016/j.jmst.2022.06.053","4":"Hierarchical microstructures and strengthening mechanisms of nano-TiC reinforced CoCrFeMnNi high-entropy alloy composites prepared by laser powder bed fusion","5":"Chen H.","6":"Journal of Materials Science and Technology","7":"245-259","8":"2023-02-10","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222006351"},{"1":"2","2":"10050302","3":"10.1016/j.jmst.2022.07.023","4":"Cooperative effect of Cr and Al elements on passivation enhancement of eutectic high-entropy alloy AlCoCrFeNi<inf>2.1<\/inf> with precipitates","5":"Duan X.","6":"Journal of Materials Science and Technology","7":"97-108","8":"2023-02-10","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222006314"},{"1":"3","2":"10050302","3":"10.1016/j.jmst.2022.06.048","4":"Ultrastrong and ductile (CoCrNi)<inf>94<\/inf>Ti<inf>3<\/inf>Al<inf>3<\/inf> medium-entropy alloys via introducing multi-scale heterogeneous structures","5":"Wang J.","6":"Journal of Materials Science and Technology","7":"241-249","8":"2023-02-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222006107"},{"1":"4","2":"10050302","3":"10.1016/j.jmst.2022.07.005","4":"Synergistic coupling of Ni<inf>3<\/inf>ZnC<inf>0.7<\/inf> decorated with homogeneous multimetal CoNiCuFe nitrogen-codoped carbon matrix as high-entropy catalysts for efficient overall water splitting","5":"Du X.","6":"Journal of Materials Science and Technology","7":"26-33","8":"2023-02-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222006016"},{"1":"5","2":"10050302","3":"10.1016/j.jmst.2022.07.012","4":"Effects of post annealing on the microstructure, precipitation behavior, and mechanical property of a (CoCrNi)<inf>94<\/inf>Al<inf>3<\/inf>Ti<inf>3<\/inf> medium-entropy alloy fabricated by laser powder bed fusion","5":"Li Z.","6":"Journal of Materials Science and Technology","7":"142-155","8":"2023-02-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222006144"},{"1":"6","2":"10050302","3":"10.1016/j.jmst.2022.06.047","4":"Local chemical inhomogeneities in TiZrNb-based refractory high-entropy alloys","5":"Xun K.","6":"Journal of Materials Science and Technology","7":"221-230","8":"2023-02-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222006090"},{"1":"7","2":"10070214","3":"10.26599/TST.2021.9010081","4":"Multivariate Time Series Forecasting with Transfer Entropy Graph","5":"Duan Z.","6":"Tsinghua Science and Technology","7":"141-149","8":"2023-02-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"entropy","17":"NA"},{"1":"8","2":"10050302","3":"10.1016/j.jmst.2022.05.060","4":"Dynamic mechanical properties, deformation and damage mechanisms of eutectic high-entropy alloy AlCoCrFeNi<inf>2<\/inf><inf>.<\/inf><inf>1<\/inf> under plate impact","5":"Zhao S.P.","6":"Journal of Materials Science and Technology","7":"178-188","8":"2023-01-20","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222005783"},{"1":"9","2":"10050302","3":"10.1016/j.jmst.2022.05.059","4":"Enhanced plastic deformation capacity in hexagonal-close-packed medium entropy alloys via facilitating cross slip","5":"Wen X.","6":"Journal of Materials Science and Technology","7":"1-10","8":"2023-01-20","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"entropy","17":"S1005030222005643"},{"1":"10","2":"00963003","3":"10.1016/j.amc.2022.127533","4":"The effect of graph operations on the degree-based entropy","5":"Dong Y.","6":"Applied Mathematics and Computation","7":"NA","8":"2023-01-15","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"entropy","17":"S0096300322006075"},{"1":"1","2":"NA","3":"10.1057/s41599-022-01219-z","4":"The significance of infant research for psychoanalysis","5":"Zhang W.","6":"Humanities and Social Sciences Communications","7":"NA","8":"2022-12-01","9":"0","10":"Journal","11":"Review","12":"1","13":"all","14":"All Open Access","15":"NA","16":"psychoanalysis","17":"NA"},{"1":"2","2":"NA","3":"10.1521/pdps.2022.50.3.492","4":"Incorporating Brain Explanations in Psychoanalysis: Tennessee Williams as a Case Study","5":"Griffies W.S.","6":"Psychodynamic psychiatry","7":"492-512","8":"2022-09-01","9":"0","10":"Journal","11":"Review","12":"0","13":"NA","14":"NA","15":"36047801","16":"psychoanalysis","17":"NA"},{"1":"3","2":"01787667","3":"10.1007/s00451-022-00474-9","4":"Sexual boundary violations in psychoanalysis: A review of 30 years","5":"Gabbard G.O.","6":"Forum der Psychoanalyse","7":"281-294","8":"2022-09-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"psychoanalysis","17":"NA"},{"1":"4","2":"01787667","3":"10.1007/s00451-022-00477-6","4":"Can psychoanalysis still learn from its crises?","5":"Buchholz M.B.","6":"Forum der Psychoanalyse","7":"217-237","8":"2022-09-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"psychoanalysis","17":"NA"},{"1":"5","2":"0957154X","3":"10.1177/0957154X221087411","4":"Hypnosis, psychoanalysis, and Morita therapy: the evolution of Kokyo Nakamura’s psychotherapeutic theories and practices","5":"Wu Y.C.","6":"History of Psychiatry","7":"279-292","8":"2022-09-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"35979863","16":"psychoanalysis","17":"NA"},{"1":"6","2":"17423341","3":"10.1002/aps.1769","4":"A unique experiment in undergraduate education in psychoanalysis: The Colorado College class at the Chicago Psychoanalytic Institute","5":"Riker J.H.","6":"International Journal of Applied Psychoanalytic Studies","7":"359-367","8":"2022-09-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"psychoanalysis","17":"NA"},{"1":"7","2":"01791613","3":"10.1111/eth.13323","4":"Helga-Fischer-Mamblona (1929–2022). Lorenzian ethology and Freudian psychoanalysis","5":"Schleidt W.M.","6":"Ethology","7":"652-656","8":"2022-09-01","9":"0","10":"Journal","11":"Note","12":"1","13":"NA","14":"NA","15":"NA","16":"psychoanalysis","17":"NA"},{"1":"8","2":"00143855","3":"10.1016/j.evopsy.2022.06.005","4":"Psychoanalysis in the service of autism","5":"Evrard R.","6":"Evolution Psychiatrique","7":"653-656","8":"2022-09-01","9":"1","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"psychoanalysis","17":"S0014385522000834"},{"1":"9","2":"01787667","3":"10.1007/s00451-022-00472-x","4":"Erich Fromm’s social psychoanalysis and it’s significance for the present","5":"Funk R.","6":"Forum der Psychoanalyse","7":"265-279","8":"2022-09-01","9":"1","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"psychoanalysis","17":"NA"},{"1":"10","2":"NA","3":"10.1177/00030651221113776","4":"New Frontiers or New Countries? A Survey Assessing COVID, Telehealth, and Innovation in Psychoanalysis","5":"Stukenberg K.W.","6":"Journal of the American Psychoanalytic Association","7":"695-728","8":"2022-08-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"36047623","16":"psychoanalysis","17":"NA"},{"1":"1","2":"01651684","3":"10.1016/j.sigpro.2022.108766","4":"Real-Valued MUSIC for Efficient Direction of Arrival Estimation With Arbitrary Arrays: Mirror Suppression and Resolution Improvement","5":"Meng X.T.","6":"Signal Processing","7":"NA","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"music","17":"S016516842200305X"},{"1":"2","2":"09574174","3":"10.1016/j.eswa.2022.118561","4":"Markov-based genetic algorithm with <U+03F5>-greedy exploration for Indian classical music composition","5":"Shukla S.","6":"Expert Systems with Applications","7":"NA","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"music","17":"S0957417422016268"},{"1":"3","2":"09574174","3":"10.1016/j.eswa.2022.118636","4":"Holistic Approaches to Music Genre Classification using Efficient Transfer and Deep Learning Techniques","5":"Prabhakar S.K.","6":"Expert Systems with Applications","7":"NA","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"music","17":"S0957417422016815"},{"1":"4","2":"16864360","3":"10.14733/cadaps.2023.S2.99-109","4":"Music Style Recognition Method Based on Computer-Aided Technology for Internet of Things","5":"Zhao J.","6":"Computer-Aided Design and Applications","7":"99-109","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"music","17":"NA"},{"1":"5","2":"18759521","3":"10.1016/j.entcom.2022.100518","4":"PMG-Net: Persian music genre classification using deep neural networks","5":"Farajzadeh N.","6":"Entertainment Computing","7":"NA","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"NA","16":"music","17":"S1875952122000428"},{"1":"6","2":"18703550","3":"10.22201/cisan.24487228e.2023.1.538","4":"Cultural Industry and Urban Creativity in North America: A Comparative Evolution of Live Popular Music in Mexico City and Montreal","5":"Spanu M.","6":"Norteamerica","7":"NA","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"music","17":"NA"},{"1":"7","2":"02676192","3":"10.32604/csse.2023.022938","4":"Music Genre Classification Using African Buffalo Optimization","5":"Jaishankar B.","6":"Computer Systems Science and Engineering","7":"1823-1836","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"music","17":"NA"},{"1":"8","2":"10798587","3":"10.32604/iasc.2023.027165","4":"Main Melody Configuration and Chord Algorithm for Relaxing Music Generation","5":"Huang C.F.","6":"Intelligent Automation and Soft Computing","7":"661-673","8":"2023-01-01","9":"0","10":"Journal","11":"Article","12":"1","13":"all","14":"All Open Access","15":"NA","16":"music","17":"NA"},{"1":"9","2":"02785846","3":"10.1016/j.pnpbp.2022.110607","4":"Online music-assisted rehabilitation system for depressed people based on deep learning","5":"Heping Y.","6":"Progress in Neuro-Psychopharmacology and Biological Psychiatry","7":"NA","8":"2022-12-20","9":"0","10":"Journal","11":"Article","12":"0","13":"NA","14":"NA","15":"35863472","16":"music","17":"S0278584622000999"},{"1":"10","2":"09574174","3":"10.1016/j.eswa.2022.118190","4":"A systematic review of artificial intelligence-based music generation: Scope, applications, and future trends","5":"Civit M.","6":"Expert Systems with Applications","7":"NA","8":"2022-12-15","9":"0","10":"Journal","11":"Review","12":"1","13":"all","14":"All Open Access","15":"NA","16":"music","17":"S0957417422013537"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<ul>
+<li>Luego implementamos la función <code>infoAffScopus</code> para extraer la afiliación de los papers que están en la tabla <code>dataPapers</code> de la lista anterior de nombre <code>results_query</code></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infoAffScopus</span>(<span class="at">resQuery =</span> results_query<span class="sc">$</span>queryScopus,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">topic =</span> list_topics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["entry_number"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["topicSearch"],"name":[2],"type":["chr"],"align":["left"]},{"label":["country"],"name":[3],"type":["chr"],"align":["left"]},{"label":["affilname"],"name":[4],"type":["chr"],"align":["left"]},{"label":["affiliation_city"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"phytopathology","3":"Indonesia","4":"Universitas Udayana","5":"Bali"},{"1":"3","2":"phytopathology","3":"NA","4":"NA","5":"NA"},{"1":"4","2":"phytopathology","3":"NA","4":"NA","5":"NA"},{"1":"4","2":"phytopathology","3":"India","4":"Amity University","5":"Noida"},{"1":"4","2":"phytopathology","3":"India","4":"ICAR - Indian Institute of Sugarcane Research, Lucknow","5":"Lucknow"},{"1":"5","2":"phytopathology","3":"China","4":"Shenzhen Polytechnic","5":"Shenzhen"},{"1":"7","2":"phytopathology","3":"NA","4":"NA","5":"NA"},{"1":"8","2":"phytopathology","3":"NA","4":"NA","5":"NA"},{"1":"9","2":"phytopathology","3":"NA","4":"NA","5":"NA"},{"1":"9","2":"phytopathology","3":"Ethiopia","4":"ARARI","5":"Bahar Dar"},{"1":"10","2":"phytopathology","3":"Russian Federation","4":"All-Russian Phytopathology Research Institute","5":"Odintsovo"},{"1":"1","2":"environmental pollution","3":"India","4":"Sardar Patel University","5":"Vallabh Vidyanagar"},{"1":"2","2":"environmental pollution","3":"China","4":"Ministry of Agriculture of the People's Republic of China","5":"Beijing"},{"1":"2","2":"environmental pollution","3":"China","4":"Zhengzhou University","5":"Zhengzhou"},{"1":"2","2":"environmental pollution","3":"China","4":"China Agricultural University","5":"Beijing"},{"1":"3","2":"environmental pollution","3":"China","4":"Hunan University","5":"Changsha"},{"1":"4","2":"environmental pollution","3":"China","4":"Jiangsu University","5":"Zhenjiang"},{"1":"5","2":"environmental pollution","3":"United States","4":"Clemson University","5":"Clemson"},{"1":"5","2":"environmental pollution","3":"Colombia","4":"Universidad del Valle","5":"Palmira"},{"1":"6","2":"environmental pollution","3":"China","4":"North China Electric Power University","5":"Beijing"},{"1":"7","2":"environmental pollution","3":"Netherlands","4":"Naturalis Biodiversity Center","5":"Leiden"},{"1":"8","2":"environmental pollution","3":"Saudi Arabia","4":"King Saud University","5":"Riyadh"},{"1":"9","2":"environmental pollution","3":"China","4":"Chongqing University","5":"Chongqing"},{"1":"10","2":"environmental pollution","3":"China","4":"Nanjing University of Information Science &amp; Technology","5":"Nanjing"},{"1":"1","2":"statistical mechanics","3":"Japan","4":"Osaka University","5":"Suita"},{"1":"2","2":"statistical mechanics","3":"United Kingdom","4":"Imperial College London","5":"London"},{"1":"3","2":"statistical mechanics","3":"United States","4":"Boston University","5":"Boston"},{"1":"4","2":"statistical mechanics","3":"United Kingdom","4":"University of York","5":"York"},{"1":"5","2":"statistical mechanics","3":"Brazil","4":"Centro Federal de Educacao Tecnologica de Minas Gerais","5":"Belo Horizonte"},{"1":"6","2":"statistical mechanics","3":"Russian Federation","4":"Peter the Great St. Petersburg Polytechnic University","5":"Saint Petersburg"},{"1":"7","2":"statistical mechanics","3":"United States","4":"University of Illinois Urbana-Champaign","5":"Urbana"},{"1":"8","2":"statistical mechanics","3":"Japan","4":"The University of Tokyo","5":"Tokyo"},{"1":"9","2":"statistical mechanics","3":"United Kingdom","4":"University of Oxford","5":"Oxford"},{"1":"9","2":"statistical mechanics","3":"United Kingdom","4":"University of Birmingham","5":"Birmingham"},{"1":"9","2":"statistical mechanics","3":"Switzerland","4":"Université de Genève","5":"Geneva"},{"1":"10","2":"statistical mechanics","3":"France","4":"Université de Lille","5":"Lille"},{"1":"1","2":"entropy","3":"China","4":"Ningbo University","5":"Ningbo"},{"1":"2","2":"entropy","3":"China","4":"Hebei University of Technology","5":"Tianjin"},{"1":"3","2":"entropy","3":"China","4":"Central South University","5":"Changsha"},{"1":"4","2":"entropy","3":"China","4":"Tiangong University","5":"Tianjin"},{"1":"5","2":"entropy","3":"China","4":"East China University of Science and Technology","5":"Shanghai"},{"1":"6","2":"entropy","3":"China","4":"Xi'an Jiaotong University","5":"Xi'an"},{"1":"7","2":"entropy","3":"China","4":"Chongqing University","5":"Chongqing"},{"1":"8","2":"entropy","3":"China","4":"The Peac Institute of Multiscale Sciences","5":"Chengdu"},{"1":"9","2":"entropy","3":"China","4":"University of Science and Technology Beijing","5":"Beijing"},{"1":"10","2":"entropy","3":"Netherlands","4":"Universiteit Twente","5":"Enschede"},{"1":"10","2":"entropy","3":"China","4":"Northwestern Polytechnical University","5":"Xi'an"},{"1":"1","2":"psychoanalysis","3":"China","4":"China University of Geosciences","5":"Wuhan"},{"1":"2","2":"psychoanalysis","3":"United States","4":"Mindpath Health Mind-Brain-Body Center","5":"New Orleans"},{"1":"4","2":"psychoanalysis","3":"NA","4":"NA","5":"NA"},{"1":"4","2":"psychoanalysis","3":"Germany","4":"Internationalen Psychoanalytischen Universität Berlin","5":"Berlin"},{"1":"5","2":"psychoanalysis","3":"Taiwan","4":"Academia Sinica Taiwan","5":"Nankang"},{"1":"6","2":"psychoanalysis","3":"United States","4":"Colorado College","5":"Colorado Springs"},{"1":"7","2":"psychoanalysis","3":"Austria","4":"Universität Wien","5":"Vienna"},{"1":"8","2":"psychoanalysis","3":"France","4":"Laboratoire INTERPSY","5":"Nancy"},{"1":"9","2":"psychoanalysis","3":"Germany","4":"Erich Fromm Institut","5":"Tubingen"},{"1":"11","2":"psychoanalysis","3":"NA","4":"NA","5":"NA"},{"1":"1","2":"music","3":"China","4":"Harbin Institute of Technology","5":"Harbin"},{"1":"2","2":"music","3":"India","4":"Indian Institute of Technology (Indian School of Mines), Dhanbad","5":"Dhanbad"},{"1":"3","2":"music","3":"South Korea","4":"Korea University","5":"Seoul"},{"1":"4","2":"music","3":"China","4":"Zhengzhou Preschool Education College","5":"Zhengzhou"},{"1":"5","2":"music","3":"Iran","4":"Azarbaijan Shahid Madani University","5":"Tabriz"},{"1":"6","2":"music","3":"Mexico","4":"Universidad Nacional Autónoma de México","5":"Ciudad de México"},{"1":"7","2":"music","3":"India","4":"KPR Institute of Engineering and Technology","5":"Coimbatore"},{"1":"8","2":"music","3":"Taiwan","4":"Kainan University Taiwan","5":"Taoyuan"},{"1":"9","2":"music","3":"China","4":"Zhejiang Normal University","5":"Jinhua"},{"1":"10","2":"music","3":"Spain","4":"Universidad Loyola Andalucia","5":"Cordoba"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</section>
+<section id="extracción-de-abstract" class="level2">
+<h2 class="anchored" data-anchor-id="extracción-de-abstract">Extracción de Abstract</h2>
+<ul>
+<li>Usamos la función <code>abstract_retrieval()</code> para retornar los resúmenes de los papers extraídos previamente</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>list_dois <span class="ot">&lt;-</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  results_query <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"dataPapers"</span>]]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(doi)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> <span class="fu">abstract_retrieval</span>(<span class="at">id =</span> list_dois[<span class="dv">1</span>], </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">identifier =</span> <span class="st">"doi"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>resumen <span class="sc">%&gt;%</span> <span class="fu">attributes</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$names
+[1] "get_statement" "content"      </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="fuentes" class="level1">
+<h1>Fuentes</h1>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/bibliometrix/bibliometrix.pdf">Bibliometrix</a></li>
+<li><a href="https://bibliometrix.org/documents/bibliometrix_Report.html">Bibliometrix</a></li>
+<li><a href="https://www.bibliometrix.org/vignettes/Data-Importing-and-Converting.html">Guía Bibliometrix</a></li>
+<li><a href="https://johnmuschelli.com/rscopus/articles/api_key.html">API Key Scopus</a></li>
+</ul>
+</section>
+<section id="borrador" class="level1">
+<h1>Borrador</h1>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">scopus_search</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"title(phytopathology) AND PUBYEAR &gt; 1998 AND PUBYEAR 2022"</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_count =</span> <span class="dv">10</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"total_results"</span>]]</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gen_entries_to_df</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"df"</span>]]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="fu">scopus_search</span>(</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"all(music) AND SRCTYPE(J) AND PUBYEAR &gt; 1990"</span>,</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_count =</span> <span class="dv">50</span>,</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"total_results"</span>]]</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<!-- -->
+
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb19" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Space Apps Challenge"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "DATASCICOL"</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">    page-layout: article</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-title: "Tabla de contenido"</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">    smooth-scroll: true</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">    df-print: paged</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">    number-depth: 4</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: yeti</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-copy: true</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">    highlight-style: github</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools:</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co">      source: true</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>, <span class="at">message =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fig.align =</span> <span class="st">"center"</span>,</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fig.height =</span> <span class="fl">4.5</span>,</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>                      <span class="at">fig.width =</span> <span class="dv">6</span>)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Bibliotecas</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringi)</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rscopus)</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Tema para gráficos</span></span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>theme_custom <span class="ot">&lt;-</span> <span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>))</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a><span class="fu"># MEASURING OPEN SCIENCE</span></span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;center&gt;&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"img/img1.PNG"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"800/"</span><span class="kw">/&gt;&lt;/center&gt;</span></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;br&gt;</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Space Apps Challenge - MEASURING OPEN SCIENCE</span><span class="co">](https://2022.spaceappschallenge.org/challenges/2022-challenges/measuring-open-science/teams/datascicol)</span></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bibliotecas y funciones</span></span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Bibliotecas</span></span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringi)</span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rscopus)</span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Funciones</span></span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"funciones-r/01-totalRecord.R"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"funciones-r/02-infoPapersScopus.R"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"funciones-r/03-infoAffScopus.R"</span>, <span class="at">encoding =</span> <span class="st">"UTF-8"</span>)</span>
+<span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Tema para gráficos</span></span>
+<span id="cb19-80"><a href="#cb19-80" aria-hidden="true" tabindex="-1"></a>theme_custom <span class="ot">&lt;-</span> <span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>))</span>
+<span id="cb19-81"><a href="#cb19-81" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-82"><a href="#cb19-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-83"><a href="#cb19-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-84"><a href="#cb19-84" aria-hidden="true" tabindex="-1"></a><span class="fu"># Elsevier Scopus</span></span>
+<span id="cb19-85"><a href="#cb19-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-86"><a href="#cb19-86" aria-hidden="true" tabindex="-1"></a><span class="fu">## Información API Scopus</span></span>
+<span id="cb19-87"><a href="#cb19-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-88"><a href="#cb19-88" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Documentación Scopus Search API</span><span class="co">](https://dev.elsevier.com/documentation/ScopusSearchAPI.wadl)</span></span>
+<span id="cb19-89"><a href="#cb19-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Recuperación de información con API Key Scopus.</span><span class="co">](https://dev.elsevier.com/api_key_settings.html)</span></span>
+<span id="cb19-90"><a href="#cb19-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Descripción de *Metadata* Scopus</span><span class="co">](https://dev.elsevier.com/sd_article_meta_views.html)</span></span>
+<span id="cb19-91"><a href="#cb19-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Interactive Scopus Search API</span><span class="co">](https://dev.elsevier.com/scopus.html#!/Scopus_Search/ScopusSearch)</span></span>
+<span id="cb19-92"><a href="#cb19-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Tips de búsqueda en Scopus Search API</span><span class="co">](https://dev.elsevier.com/sc_search_tips.html)</span></span>
+<span id="cb19-93"><a href="#cb19-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-94"><a href="#cb19-94" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;center&gt;&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">"img/img2.PNG"</span> <span class="er">width</span><span class="ot">=</span><span class="st">"1100/"</span><span class="kw">/&gt;&lt;/center&gt;</span></span>
+<span id="cb19-95"><a href="#cb19-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-96"><a href="#cb19-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Biblioteca `rscopus`</span></span>
+<span id="cb19-97"><a href="#cb19-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-98"><a href="#cb19-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Documentación `rscopus`</span><span class="co">](https://johnmuschelli.com/rscopus/index.html)</span></span>
+<span id="cb19-99"><a href="#cb19-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Función `scopus_search`</span><span class="co">](https://johnmuschelli.com/rscopus/reference/scopus_search.html)</span></span>
+<span id="cb19-100"><a href="#cb19-100" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Esta función permite extraer información desde Scopus, sin embargo, es oportuno tener en cuenta lo que se describe en la página web acerca de <span class="co">[</span><span class="ot">recuperación de información con API Key.</span><span class="co">](https://dev.elsevier.com/api_key_settings.html)</span></span>
+<span id="cb19-101"><a href="#cb19-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-104"><a href="#cb19-104" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-105"><a href="#cb19-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregando API key (se requiere registro en Elsevier Scopus)</span></span>
+<span id="cb19-106"><a href="#cb19-106" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="st">"elsevier_api_key"</span> <span class="ot">=</span> <span class="st">"4613d6354ad8908013e2e4b40c868eb3"</span>)</span>
+<span id="cb19-107"><a href="#cb19-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-108"><a href="#cb19-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Validar API key</span></span>
+<span id="cb19-109"><a href="#cb19-109" aria-hidden="true" tabindex="-1"></a>config_api <span class="ot">&lt;-</span> <span class="fu">get_api_key</span>()</span>
+<span id="cb19-110"><a href="#cb19-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-111"><a href="#cb19-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracción de información asociada a la palabra "music"</span></span>
+<span id="cb19-112"><a href="#cb19-112" aria-hidden="true" tabindex="-1"></a><span class="co"># TODOS los documentos relacionados con "music"</span></span>
+<span id="cb19-113"><a href="#cb19-113" aria-hidden="true" tabindex="-1"></a>prueba <span class="ot">&lt;-</span> <span class="fu">scopus_search</span>(<span class="at">query =</span> <span class="st">"all(music)"</span>,</span>
+<span id="cb19-114"><a href="#cb19-114" aria-hidden="true" tabindex="-1"></a>                    <span class="at">max_count =</span> <span class="dv">10</span>,</span>
+<span id="cb19-115"><a href="#cb19-115" aria-hidden="true" tabindex="-1"></a>                    <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb19-116"><a href="#cb19-116" aria-hidden="true" tabindex="-1"></a>                    <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-117"><a href="#cb19-117" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-118"><a href="#cb19-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-119"><a href="#cb19-119" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Podemos especificar que sean búsquedas asociadas sólo a **títulos**:</span>
+<span id="cb19-120"><a href="#cb19-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-123"><a href="#cb19-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-124"><a href="#cb19-124" aria-hidden="true" tabindex="-1"></a>titulos_music <span class="ot">&lt;-</span> <span class="fu">scopus_search</span>(</span>
+<span id="cb19-125"><a href="#cb19-125" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"title(music)"</span>,</span>
+<span id="cb19-126"><a href="#cb19-126" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_count =</span> <span class="dv">10</span>,</span>
+<span id="cb19-127"><a href="#cb19-127" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb19-128"><a href="#cb19-128" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb19-129"><a href="#cb19-129" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-130"><a href="#cb19-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-131"><a href="#cb19-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-132"><a href="#cb19-132" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Podemos consultar los atributos de la extracción de información:</span>
+<span id="cb19-133"><a href="#cb19-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-136"><a href="#cb19-136" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-137"><a href="#cb19-137" aria-hidden="true" tabindex="-1"></a>titulos_music <span class="sc">%&gt;%</span> <span class="fu">attributes</span>()</span>
+<span id="cb19-138"><a href="#cb19-138" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-139"><a href="#cb19-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-140"><a href="#cb19-140" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Podemos saber cuántos resultados hay en total (aún cuando sólo recuperamos 10):</span>
+<span id="cb19-141"><a href="#cb19-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-144"><a href="#cb19-144" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-145"><a href="#cb19-145" aria-hidden="true" tabindex="-1"></a>titulos_music<span class="sc">$</span>total_results</span>
+<span id="cb19-146"><a href="#cb19-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-147"><a href="#cb19-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-148"><a href="#cb19-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-149"><a href="#cb19-149" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Podemos pasar las <span class="in">`entries`</span> a dataframe con la función <span class="in">`gen_entries_to_df()`</span>. Esta función devuelte 3 bases de datos:</span>
+<span id="cb19-150"><a href="#cb19-150" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`df`</span>: en esta base de datos cada fila es un paper</span>
+<span id="cb19-151"><a href="#cb19-151" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`prism:isbn`</span></span>
+<span id="cb19-152"><a href="#cb19-152" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="in">`affiliation`</span>: en esta base de datos cada fila es una filiación. Es posible que un paper sea escrito por dos personas de diferentes universidades (filiaciones), entonces se repetirá la variable <span class="in">`entry_number`</span>.</span>
+<span id="cb19-153"><a href="#cb19-153" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>La variable <span class="in">`entry_number`</span> está presente en las tres tablas, de tal manera que esta variable nos sirve para unir las tres tablas, sin embargo, sólo es de interés unir <span class="in">`df`</span> y <span class="in">`affiliation`</span>.</span>
+<span id="cb19-154"><a href="#cb19-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-157"><a href="#cb19-157" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-158"><a href="#cb19-158" aria-hidden="true" tabindex="-1"></a>titulos_music<span class="sc">$</span>entries <span class="sc">%&gt;%</span> </span>
+<span id="cb19-159"><a href="#cb19-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gen_entries_to_df</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb19-160"><a href="#cb19-160" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb19-161"><a href="#cb19-161" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"df"</span>]]</span>
+<span id="cb19-162"><a href="#cb19-162" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
+<span id="cb19-163"><a href="#cb19-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(entry_number, <span class="fu">everything</span>())</span>
+<span id="cb19-164"><a href="#cb19-164" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-165"><a href="#cb19-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-166"><a href="#cb19-166" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>También extraemos la información de la afiliación del paper:</span>
+<span id="cb19-167"><a href="#cb19-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-170"><a href="#cb19-170" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-171"><a href="#cb19-171" aria-hidden="true" tabindex="-1"></a>titulos_music<span class="sc">$</span>entries <span class="sc">%&gt;%</span> </span>
+<span id="cb19-172"><a href="#cb19-172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gen_entries_to_df</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb19-173"><a href="#cb19-173" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb19-174"><a href="#cb19-174" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"affiliation"</span>]]</span>
+<span id="cb19-175"><a href="#cb19-175" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
+<span id="cb19-176"><a href="#cb19-176" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(entry_number, <span class="fu">everything</span>())</span>
+<span id="cb19-177"><a href="#cb19-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-178"><a href="#cb19-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-179"><a href="#cb19-179" aria-hidden="true" tabindex="-1"></a><span class="fu">## Temas Space Apps</span></span>
+<span id="cb19-180"><a href="#cb19-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-181"><a href="#cb19-181" aria-hidden="true" tabindex="-1"></a><span class="fu">### 6 Temas</span></span>
+<span id="cb19-182"><a href="#cb19-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-183"><a href="#cb19-183" aria-hidden="true" tabindex="-1"></a>| Inglés                    | Español                   | Portugués              |</span>
+<span id="cb19-184"><a href="#cb19-184" aria-hidden="true" tabindex="-1"></a>|---------------------------|---------------------------|------------------------|</span>
+<span id="cb19-185"><a href="#cb19-185" aria-hidden="true" tabindex="-1"></a>| *phytopathology*          | *fitopatologia*           | *fitopatologia*        |</span>
+<span id="cb19-186"><a href="#cb19-186" aria-hidden="true" tabindex="-1"></a>| *environmental pollution* | *contaminación ambiental* | *poluição ambiental*   |</span>
+<span id="cb19-187"><a href="#cb19-187" aria-hidden="true" tabindex="-1"></a>| *statistical mechanics*   | *mecánica estadística*    | *mecânica estatística* |</span>
+<span id="cb19-188"><a href="#cb19-188" aria-hidden="true" tabindex="-1"></a>| *entropy*                 | *entropía*                | *entropia*             |</span>
+<span id="cb19-189"><a href="#cb19-189" aria-hidden="true" tabindex="-1"></a>| *psychoanalysis*          | *psicoanálisis*           | *psicanálise*          |</span>
+<span id="cb19-190"><a href="#cb19-190" aria-hidden="true" tabindex="-1"></a>| *music*                   | *musica*                  | *música*               |</span>
+<span id="cb19-191"><a href="#cb19-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-192"><a href="#cb19-192" aria-hidden="true" tabindex="-1"></a><span class="fu">### ¿Total de papers?</span></span>
+<span id="cb19-193"><a href="#cb19-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-194"><a href="#cb19-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Creamos una función que nos permita extraer el total de resultados asociados a los 6 temas anteriores.</span>
+<span id="cb19-195"><a href="#cb19-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-198"><a href="#cb19-198" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-199"><a href="#cb19-199" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración para extracción</span></span>
+<span id="cb19-200"><a href="#cb19-200" aria-hidden="true" tabindex="-1"></a>my_key <span class="ot">&lt;-</span> <span class="st">"4613d6354ad8908013e2e4b40c868eb3"</span></span>
+<span id="cb19-201"><a href="#cb19-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-202"><a href="#cb19-202" aria-hidden="true" tabindex="-1"></a>type_search <span class="ot">&lt;-</span> <span class="st">"title"</span></span>
+<span id="cb19-203"><a href="#cb19-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-204"><a href="#cb19-204" aria-hidden="true" tabindex="-1"></a>list_topics <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb19-205"><a href="#cb19-205" aria-hidden="true" tabindex="-1"></a>  <span class="st">"phytopathology"</span>,</span>
+<span id="cb19-206"><a href="#cb19-206" aria-hidden="true" tabindex="-1"></a>  <span class="st">"environmental pollution"</span>,</span>
+<span id="cb19-207"><a href="#cb19-207" aria-hidden="true" tabindex="-1"></a>  <span class="st">"statistical mechanics"</span>,</span>
+<span id="cb19-208"><a href="#cb19-208" aria-hidden="true" tabindex="-1"></a>  <span class="st">"entropy"</span>,</span>
+<span id="cb19-209"><a href="#cb19-209" aria-hidden="true" tabindex="-1"></a>  <span class="st">"psychoanalysis"</span>,</span>
+<span id="cb19-210"><a href="#cb19-210" aria-hidden="true" tabindex="-1"></a>  <span class="st">"music"</span></span>
+<span id="cb19-211"><a href="#cb19-211" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-212"><a href="#cb19-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-213"><a href="#cb19-213" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecución de función</span></span>
+<span id="cb19-214"><a href="#cb19-214" aria-hidden="true" tabindex="-1"></a><span class="fu">totalRecord</span>(</span>
+<span id="cb19-215"><a href="#cb19-215" aria-hidden="true" tabindex="-1"></a>  <span class="at">apiKey =</span> my_key,</span>
+<span id="cb19-216"><a href="#cb19-216" aria-hidden="true" tabindex="-1"></a>  <span class="at">typeQuery =</span> type_search,</span>
+<span id="cb19-217"><a href="#cb19-217" aria-hidden="true" tabindex="-1"></a>  <span class="at">topic =</span> list_topics,</span>
+<span id="cb19-218"><a href="#cb19-218" aria-hidden="true" tabindex="-1"></a>  <span class="at">docType =</span> <span class="st">"All"</span>,</span>
+<span id="cb19-219"><a href="#cb19-219" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="st">"1990"</span></span>
+<span id="cb19-220"><a href="#cb19-220" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-221"><a href="#cb19-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-222"><a href="#cb19-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-223"><a href="#cb19-223" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Podríamos consultar sólo los *Journal*:</span>
+<span id="cb19-224"><a href="#cb19-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-227"><a href="#cb19-227" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-228"><a href="#cb19-228" aria-hidden="true" tabindex="-1"></a><span class="fu">totalRecord</span>(</span>
+<span id="cb19-229"><a href="#cb19-229" aria-hidden="true" tabindex="-1"></a>  <span class="at">apiKey =</span> my_key,</span>
+<span id="cb19-230"><a href="#cb19-230" aria-hidden="true" tabindex="-1"></a>  <span class="at">typeQuery =</span> type_search,</span>
+<span id="cb19-231"><a href="#cb19-231" aria-hidden="true" tabindex="-1"></a>  <span class="at">topic =</span> list_topics,</span>
+<span id="cb19-232"><a href="#cb19-232" aria-hidden="true" tabindex="-1"></a>  <span class="at">docType =</span> <span class="st">"J"</span>,</span>
+<span id="cb19-233"><a href="#cb19-233" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="st">"1990"</span> </span>
+<span id="cb19-234"><a href="#cb19-234" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-235"><a href="#cb19-235" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-236"><a href="#cb19-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-237"><a href="#cb19-237" aria-hidden="true" tabindex="-1"></a><span class="fu">## Extracción papers</span></span>
+<span id="cb19-238"><a href="#cb19-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-239"><a href="#cb19-239" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Probamos la función <span class="in">`infoPapersScopus()`</span> para extracción de información de papers. Esta funión retorna la base de datos de artículos y los resultados de la consulta a Scopus. Este último resultado puede ser útil para usar otras funciones de <span class="in">`rscopus`</span>, por ejemplo, <span class="in">`abstract_retrieval()`</span> para recuperar los resúmenes.</span>
+<span id="cb19-240"><a href="#cb19-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-243"><a href="#cb19-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-244"><a href="#cb19-244" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración para extracción</span></span>
+<span id="cb19-245"><a href="#cb19-245" aria-hidden="true" tabindex="-1"></a>my_key <span class="ot">&lt;-</span> <span class="st">"4613d6354ad8908013e2e4b40c868eb3"</span></span>
+<span id="cb19-246"><a href="#cb19-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-247"><a href="#cb19-247" aria-hidden="true" tabindex="-1"></a>type_search <span class="ot">&lt;-</span> <span class="st">"title"</span></span>
+<span id="cb19-248"><a href="#cb19-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-249"><a href="#cb19-249" aria-hidden="true" tabindex="-1"></a>list_topics <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb19-250"><a href="#cb19-250" aria-hidden="true" tabindex="-1"></a>  <span class="st">"phytopathology"</span>,</span>
+<span id="cb19-251"><a href="#cb19-251" aria-hidden="true" tabindex="-1"></a>  <span class="st">"environmental pollution"</span>,</span>
+<span id="cb19-252"><a href="#cb19-252" aria-hidden="true" tabindex="-1"></a>  <span class="st">"statistical mechanics"</span>,</span>
+<span id="cb19-253"><a href="#cb19-253" aria-hidden="true" tabindex="-1"></a>  <span class="st">"entropy"</span>,</span>
+<span id="cb19-254"><a href="#cb19-254" aria-hidden="true" tabindex="-1"></a>  <span class="st">"psychoanalysis"</span>,</span>
+<span id="cb19-255"><a href="#cb19-255" aria-hidden="true" tabindex="-1"></a>  <span class="st">"music"</span></span>
+<span id="cb19-256"><a href="#cb19-256" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-257"><a href="#cb19-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-258"><a href="#cb19-258" aria-hidden="true" tabindex="-1"></a><span class="co"># Información de papers</span></span>
+<span id="cb19-259"><a href="#cb19-259" aria-hidden="true" tabindex="-1"></a>results_query <span class="ot">&lt;-</span></span>
+<span id="cb19-260"><a href="#cb19-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">infoPapersScopus</span>(</span>
+<span id="cb19-261"><a href="#cb19-261" aria-hidden="true" tabindex="-1"></a>    <span class="at">apiKey =</span> my_key,</span>
+<span id="cb19-262"><a href="#cb19-262" aria-hidden="true" tabindex="-1"></a>    <span class="at">typeQuery =</span> <span class="st">"title"</span>,</span>
+<span id="cb19-263"><a href="#cb19-263" aria-hidden="true" tabindex="-1"></a>    <span class="at">topic =</span> list_topics,</span>
+<span id="cb19-264"><a href="#cb19-264" aria-hidden="true" tabindex="-1"></a>    <span class="at">docType =</span> <span class="st">"J"</span>,</span>
+<span id="cb19-265"><a href="#cb19-265" aria-hidden="true" tabindex="-1"></a>    <span class="at">afterYear =</span> <span class="st">"1998"</span>,</span>
+<span id="cb19-266"><a href="#cb19-266" aria-hidden="true" tabindex="-1"></a>    <span class="at">numPapers =</span> <span class="dv">10</span>,</span>
+<span id="cb19-267"><a href="#cb19-267" aria-hidden="true" tabindex="-1"></a>    <span class="at">countRetrieval =</span> <span class="dv">10</span>,</span>
+<span id="cb19-268"><a href="#cb19-268" aria-hidden="true" tabindex="-1"></a>    <span class="at">showProgress =</span> <span class="cn">FALSE</span></span>
+<span id="cb19-269"><a href="#cb19-269" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-270"><a href="#cb19-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-271"><a href="#cb19-271" aria-hidden="true" tabindex="-1"></a>results_query <span class="sc">%&gt;%</span> <span class="fu">names</span>()</span>
+<span id="cb19-272"><a href="#cb19-272" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-273"><a href="#cb19-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-274"><a href="#cb19-274" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>La siguiente tabla tiene la información de los papers:</span>
+<span id="cb19-275"><a href="#cb19-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-278"><a href="#cb19-278" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-279"><a href="#cb19-279" aria-hidden="true" tabindex="-1"></a>results_query<span class="sc">$</span>dataPapers</span>
+<span id="cb19-280"><a href="#cb19-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-281"><a href="#cb19-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-282"><a href="#cb19-282" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Luego implementamos la función <span class="in">`infoAffScopus`</span> para extraer la afiliación de los papers que están en la tabla <span class="in">`dataPapers`</span> de la lista anterior de nombre <span class="in">`results_query`</span></span>
+<span id="cb19-283"><a href="#cb19-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-286"><a href="#cb19-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-287"><a href="#cb19-287" aria-hidden="true" tabindex="-1"></a><span class="fu">infoAffScopus</span>(<span class="at">resQuery =</span> results_query<span class="sc">$</span>queryScopus,</span>
+<span id="cb19-288"><a href="#cb19-288" aria-hidden="true" tabindex="-1"></a>              <span class="at">topic =</span> list_topics)</span>
+<span id="cb19-289"><a href="#cb19-289" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-290"><a href="#cb19-290" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-291"><a href="#cb19-291" aria-hidden="true" tabindex="-1"></a><span class="fu">## Extracción de Abstract</span></span>
+<span id="cb19-292"><a href="#cb19-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-293"><a href="#cb19-293" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Usamos la función <span class="in">`abstract_retrieval()`</span> para retornar los resúmenes de los papers extraídos previamente</span>
+<span id="cb19-294"><a href="#cb19-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-297"><a href="#cb19-297" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb19-298"><a href="#cb19-298" aria-hidden="true" tabindex="-1"></a>list_dois <span class="ot">&lt;-</span></span>
+<span id="cb19-299"><a href="#cb19-299" aria-hidden="true" tabindex="-1"></a>  results_query <span class="sc">%&gt;%</span> </span>
+<span id="cb19-300"><a href="#cb19-300" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb19-301"><a href="#cb19-301" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"dataPapers"</span>]]</span>
+<span id="cb19-302"><a href="#cb19-302" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
+<span id="cb19-303"><a href="#cb19-303" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(doi)</span>
+<span id="cb19-304"><a href="#cb19-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-305"><a href="#cb19-305" aria-hidden="true" tabindex="-1"></a>resumen <span class="ot">&lt;-</span> <span class="fu">abstract_retrieval</span>(<span class="at">id =</span> list_dois[<span class="dv">1</span>], </span>
+<span id="cb19-306"><a href="#cb19-306" aria-hidden="true" tabindex="-1"></a>                              <span class="at">identifier =</span> <span class="st">"doi"</span>)</span>
+<span id="cb19-307"><a href="#cb19-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-308"><a href="#cb19-308" aria-hidden="true" tabindex="-1"></a>resumen <span class="sc">%&gt;%</span> <span class="fu">attributes</span>()</span>
+<span id="cb19-309"><a href="#cb19-309" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb19-310"><a href="#cb19-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-311"><a href="#cb19-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-312"><a href="#cb19-312" aria-hidden="true" tabindex="-1"></a><span class="fu"># Fuentes</span></span>
+<span id="cb19-313"><a href="#cb19-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-314"><a href="#cb19-314" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Bibliometrix</span><span class="co">](https://cran.r-project.org/web/packages/bibliometrix/bibliometrix.pdf)</span></span>
+<span id="cb19-315"><a href="#cb19-315" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Bibliometrix</span><span class="co">](https://bibliometrix.org/documents/bibliometrix_Report.html)</span></span>
+<span id="cb19-316"><a href="#cb19-316" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Guía Bibliometrix</span><span class="co">](https://www.bibliometrix.org/vignettes/Data-Importing-and-Converting.html)</span></span>
+<span id="cb19-317"><a href="#cb19-317" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">API Key Scopus</span><span class="co">](https://johnmuschelli.com/rscopus/articles/api_key.html)</span></span>
+<span id="cb19-318"><a href="#cb19-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-319"><a href="#cb19-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-320"><a href="#cb19-320" aria-hidden="true" tabindex="-1"></a><span class="fu"># Borrador</span></span>
+<span id="cb19-321"><a href="#cb19-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-322"><a href="#cb19-322" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb19-323"><a href="#cb19-323" aria-hidden="true" tabindex="-1"></a><span class="fu">scopus_search</span>(</span>
+<span id="cb19-324"><a href="#cb19-324" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"title(phytopathology) AND PUBYEAR &gt; 1998 AND PUBYEAR 2022"</span>,</span>
+<span id="cb19-325"><a href="#cb19-325" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_count =</span> <span class="dv">10</span>,</span>
+<span id="cb19-326"><a href="#cb19-326" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb19-327"><a href="#cb19-327" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb19-328"><a href="#cb19-328" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-329"><a href="#cb19-329" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb19-330"><a href="#cb19-330" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"total_results"</span>]]</span>
+<span id="cb19-331"><a href="#cb19-331" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span></span>
+<span id="cb19-332"><a href="#cb19-332" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gen_entries_to_df</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-333"><a href="#cb19-333" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb19-334"><a href="#cb19-334" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"df"</span>]]</span>
+<span id="cb19-335"><a href="#cb19-335" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb19-336"><a href="#cb19-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-337"><a href="#cb19-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-338"><a href="#cb19-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-339"><a href="#cb19-339" aria-hidden="true" tabindex="-1"></a><span class="fu">scopus_search</span>(</span>
+<span id="cb19-340"><a href="#cb19-340" aria-hidden="true" tabindex="-1"></a>  <span class="at">query =</span> <span class="st">"all(music) AND SRCTYPE(J) AND PUBYEAR &gt; 1990"</span>,</span>
+<span id="cb19-341"><a href="#cb19-341" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_count =</span> <span class="dv">50</span>,</span>
+<span id="cb19-342"><a href="#cb19-342" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="dv">10</span>,</span>
+<span id="cb19-343"><a href="#cb19-343" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb19-344"><a href="#cb19-344" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-345"><a href="#cb19-345" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb19-346"><a href="#cb19-346" aria-hidden="true" tabindex="-1"></a>    .[[<span class="st">"total_results"</span>]]</span>
+<span id="cb19-347"><a href="#cb19-347" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb19-348"><a href="#cb19-348" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+<script src="00-pruebas-borrador_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

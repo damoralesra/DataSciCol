@@ -1,0 +1,324 @@
+---
+title: "Space Apps Challenge"
+subtitle: "DATASCICOL"
+format: 
+  html:
+    page-layout: article
+    toc: true
+    toc-title: "Tabla de contenido"
+    smooth-scroll: true
+    code-fold: true
+    df-print: paged
+    toc-location: left
+    number-depth: 4
+    theme: yeti
+    code-copy: true
+    highlight-style: github
+    code-tools:
+      source: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
+                      fig.align = "center",
+                      fig.height = 4.5,
+                      fig.width = 6)
+
+# Bibliotecas
+library(tidyverse)
+library(stringi)
+library(glue)
+
+library(rscopus)
+
+library(rvest)
+library(janitor)
+library(lubridate)
+
+library(corrplot)
+library(FactoMineR)
+library(ggrepel)
+
+# Tema para gráficos
+theme_custom <- theme_set(theme_minimal() + theme(legend.position = "top"))
+```
+
+# MEASURING OPEN SCIENCE
+
+<center><img src="img/img1.PNG" width="800/"/></center>
+
+<br>
+
+-   [Space Apps Challenge - MEASURING OPEN SCIENCE](https://2022.spaceappschallenge.org/challenges/2022-challenges/measuring-open-science/teams/datascicol)
+
+# Bibliotecas y funciones
+
+```{r}
+# Bibliotecas
+library(tidyverse)
+library(stringi)
+library(glue)
+
+library(rscopus)
+
+library(rvest)
+library(janitor)
+library(lubridate)
+
+library(corrplot)
+library(FactoMineR)
+library(ggrepel)
+
+# Funciones
+source("funciones-r/01-totalRecord.R", encoding = "UTF-8")
+source("funciones-r/02-infoPapersScopus.R", encoding = "UTF-8")
+source("funciones-r/03-infoAffScopus.R", encoding = "UTF-8")
+
+# Tema para gráficos
+theme_custom <- theme_set(theme_minimal() + theme(legend.position = "top"))
+```
+
+
+# Elsevier Scopus
+
+## Información API Scopus
+
+- [Documentación Scopus Search API](https://dev.elsevier.com/documentation/ScopusSearchAPI.wadl)
+- [Recuperación de información con API Key Scopus.](https://dev.elsevier.com/api_key_settings.html)
+- [Descripción de *Metadata* Scopus](https://dev.elsevier.com/sd_article_meta_views.html)
+- [Interactive Scopus Search API](https://dev.elsevier.com/scopus.html#!/Scopus_Search/ScopusSearch)
+- [Tips de búsqueda en Scopus Search API](https://dev.elsevier.com/sc_search_tips.html)
+
+<center><img src="img/img2.PNG" width="1100/"/></center>
+
+## Biblioteca `rscopus`
+
+-   [Documentación `rscopus`](https://johnmuschelli.com/rscopus/index.html)
+-   [Función `scopus_search`](https://johnmuschelli.com/rscopus/reference/scopus_search.html)
+    -   Esta función permite extraer información desde Scopus, sin embargo, es oportuno tener en cuenta lo que se describe en la página web acerca de [recuperación de información con API Key.](https://dev.elsevier.com/api_key_settings.html)
+
+```{r}
+# Agregando API key (se requiere registro en Elsevier Scopus)
+options("elsevier_api_key" = "4613d6354ad8908013e2e4b40c868eb3")
+
+# Validar API key
+config_api <- get_api_key()
+
+# Extracción de información asociada a la palabra "music"
+# TODOS los documentos relacionados con "music"
+prueba <- scopus_search(query = "all(music)",
+                    max_count = 10,
+                    count = 10,
+                    verbose = FALSE)
+```
+
+-   Podemos especificar que sean búsquedas asociadas sólo a **títulos**:
+
+```{r}
+titulos_music <- scopus_search(
+  query = "title(music)",
+  max_count = 10,
+  count = 10,
+  verbose = FALSE
+)
+```
+
+-   Podemos consultar los atributos de la extracción de información:
+
+```{r}
+titulos_music %>% attributes()
+```
+
+-   Podemos saber cuántos resultados hay en total (aún cuando sólo recuperamos 10):
+
+```{r}
+titulos_music$total_results
+```
+
+
+-   Podemos pasar las `entries` a dataframe con la función `gen_entries_to_df()`. Esta función devuelte 3 bases de datos:
+    -   `df`: en esta base de datos cada fila es un paper
+    -   `prism:isbn`
+    -   `affiliation`: en esta base de datos cada fila es una filiación. Es posible que un paper sea escrito por dos personas de diferentes universidades (filiaciones), entonces se repetirá la variable `entry_number`.
+-   La variable `entry_number` está presente en las tres tablas, de tal manera que esta variable nos sirve para unir las tres tablas, sin embargo, sólo es de interés unir `df` y `affiliation`.
+
+```{r}
+titulos_music$entries %>% 
+  gen_entries_to_df() %>% 
+  {
+    .[["df"]]
+  } %>% 
+  relocate(entry_number, everything())
+```
+
+-   También extraemos la información de la afiliación del paper:
+
+```{r}
+titulos_music$entries %>% 
+  gen_entries_to_df() %>% 
+  {
+    .[["affiliation"]]
+  } %>% 
+  relocate(entry_number, everything())
+```
+
+## Temas Space Apps
+
+### 6 Temas
+
+| Inglés                    | Español                   | Portugués              |
+|---------------------------|---------------------------|------------------------|
+| *phytopathology*          | *fitopatologia*           | *fitopatologia*        |
+| *environmental pollution* | *contaminación ambiental* | *poluição ambiental*   |
+| *statistical mechanics*   | *mecánica estadística*    | *mecânica estatística* |
+| *entropy*                 | *entropía*                | *entropia*             |
+| *psychoanalysis*          | *psicoanálisis*           | *psicanálise*          |
+| *music*                   | *musica*                  | *música*               |
+
+### ¿Total de papers?
+
+- Creamos una función que nos permita extraer el total de resultados asociados a los 6 temas anteriores.
+
+```{r}
+# Configuración para extracción
+my_key <- "4613d6354ad8908013e2e4b40c868eb3"
+
+type_search <- "title"
+
+list_topics <- c(
+  "phytopathology",
+  "environmental pollution",
+  "statistical mechanics",
+  "entropy",
+  "psychoanalysis",
+  "music"
+)
+
+# Ejecución de función
+totalRecord(
+  apiKey = my_key,
+  typeQuery = type_search,
+  topic = list_topics,
+  docType = "All",
+  year = "1990"
+)
+```
+
+- Podríamos consultar sólo los *Journal*:
+
+```{r}
+totalRecord(
+  apiKey = my_key,
+  typeQuery = type_search,
+  topic = list_topics,
+  docType = "J",
+  year = "1990" 
+)
+```
+
+## Extracción papers
+
+- Probamos la función `infoPapersScopus()` para extracción de información de papers. Esta funión retorna la base de datos de artículos y los resultados de la consulta a Scopus. Este último resultado puede ser útil para usar otras funciones de `rscopus`, por ejemplo, `abstract_retrieval()` para recuperar los resúmenes.
+
+```{r}
+# Configuración para extracción
+my_key <- "4613d6354ad8908013e2e4b40c868eb3"
+
+type_search <- "title"
+
+list_topics <- c(
+  "phytopathology",
+  "environmental pollution",
+  "statistical mechanics",
+  "entropy",
+  "psychoanalysis",
+  "music"
+)
+
+# Información de papers
+results_query <-
+  infoPapersScopus(
+    apiKey = my_key,
+    typeQuery = "title",
+    topic = list_topics,
+    docType = "J",
+    afterYear = "1998",
+    numPapers = 10,
+    countRetrieval = 10,
+    showProgress = FALSE
+  )
+
+results_query %>% names()
+```
+
+- La siguiente tabla tiene la información de los papers:
+
+```{r}
+results_query$dataPapers
+```
+
+- Luego implementamos la función `infoAffScopus` para extraer la afiliación de los papers que están en la tabla `dataPapers` de la lista anterior de nombre `results_query`
+
+```{r}
+infoAffScopus(resQuery = results_query$queryScopus,
+              topic = list_topics)
+```
+
+## Extracción de Abstract
+
+- Usamos la función `abstract_retrieval()` para retornar los resúmenes de los papers extraídos previamente
+
+```{r}
+list_dois <-
+  results_query %>% 
+  {
+    .[["dataPapers"]]
+  } %>% 
+  pull(doi)
+
+resumen <- abstract_retrieval(id = list_dois[1], 
+                              identifier = "doi")
+
+resumen %>% attributes()
+
+resumen$content
+```
+
+
+# Fuentes
+
+-   [Bibliometrix](https://cran.r-project.org/web/packages/bibliometrix/bibliometrix.pdf)
+-   [Bibliometrix](https://bibliometrix.org/documents/bibliometrix_Report.html)
+-   [Guía Bibliometrix](https://www.bibliometrix.org/vignettes/Data-Importing-and-Converting.html)
+-   [API Key Scopus](https://johnmuschelli.com/rscopus/articles/api_key.html)
+
+
+# Borrador
+
+```{r, eval = FALSE}
+scopus_search(
+  query = "title(phytopathology) AND PUBYEAR > 1998 AND PUBYEAR 2022",
+  max_count = 10,
+  count = 10,
+  verbose = FALSE
+) %>%
+  {
+    .[["total_results"]]
+  } %>%
+  gen_entries_to_df() %>%
+  {
+    .[["df"]]
+  } 
+
+
+
+scopus_search(
+  query = "all(music) AND SRCTYPE(J) AND PUBYEAR > 1990",
+  max_count = 50,
+  count = 10,
+  verbose = FALSE
+) %>% 
+  {
+    .[["total_results"]]
+  }
+```

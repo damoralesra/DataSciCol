@@ -1,0 +1,152 @@
+---
+title: "Nassa Space Apps"
+output: html_document
+date: "2022-10-02"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = FALSE)
+```
+
+# SCImago Journal & Country Rank data, ready for R
+
+- SCImago Journal & Country Rank proporciona estimaciones valiosas del prestigio de las revistas académicas. Los datos están disponibles gratuitamente en el sitio web del proyecto y se distribuyen para un análisis más profundo en forma de archivos .csv y .xlsx. Básicamente, todo el paquete le brinda tres marcos de datos fácilmente accesibles: sjr_journals (Clasificación de la revista), sjr_countries (Clasificación del país, año por año) y sjr_countries_1996_2017 (Clasificación del país, todos los años juntos). 
+
+```{r}
+devtools::install_github("ikashnitsky/sjrdata")
+```
+
+```{r}
+library(tidyverse)
+library(sjrdata)
+
+sjr_journals %>%
+    filter(title %in% c("Nature", "Science", "Ca-A Cancer Journal for Clinicians")) %>%
+    ggplot(aes(cites_doc_2years, sjr, color = title))+
+    geom_path(size = 1, alpha = .5)+
+    geom_label(aes(label = year %>% str_sub(3, 4)),
+              size = 3, label.padding = unit(.15, "line"))
+```
+
+```{r}
+sjr_journals %>%
+    filter(title %in% c(
+        "Phytopathology",
+        "Brazilian Joiu",
+        "Statistical mechanics",
+        "Entropy",
+        "Psychoanalysis",
+        "Music"
+    )) %>%
+    ggplot(aes(cites_doc_2years, sjr, color = title))+
+    geom_point()+
+    stat_ellipse()+
+    scale_color_brewer(palette = "Dark2")+
+    coord_cartesian(expand = F)
+```
+
+```{r}
+scimago <- sjr_journals
+```
+
+```{r}
+sjr_countries
+```
+# Páginas de interés
+
+- http://www.eigenfactor.org/papers.php
+
+  El proyecto Eigenfactor ha dado lugar a numerosas publicaciones académicas en varias áreas de investigación:
+Métricas de revistas, autores y artículos
+Algoritmos para agrupamiento y mapeo de redes
+Economía de la publicación académica
+Métodos para la navegación científica
+Estudios de sociología de la ciencia.
+
+- https://data.worldbank.org/indicator/SE.XPD.TOTL.GB.ZS?locations=CO&name_desc=true
+
+  Esta página nos pErmite descargar datos de Gasto público en educación, total (% del gasto del gobierno)
+  
+# Borrador
+
+## Estadísticas en educación
+
+```{r}
+library(janitor)
+
+table_education <-
+  read_csv(
+    "Data_Extract_From_Education_Statistics_-_All_Indicators/1d4d1495-7582-475a-9a90-3c972b85d566_Data.csv"
+  ) %>%
+  clean_names() %>%
+  pivot_longer(
+    cols = -c(country_name, country_code, series, series_code),
+    names_to = "year"
+  ) %>%
+  mutate(value = as.numeric(value)) %>%
+  separate(col = year,
+           sep = "_",
+           into = c("year", "year2")) %>%
+  select(-year2) %>%
+  mutate(year = str_replace_all(year, "x", ""), year = as.integer(year))
+```
+
+## Acceso a la electricidad
+
+```{r}
+table_electricidad <-
+  read_csv(
+    "Acceso_electricidad/API_EG.ELC.ACCS.ZS_DS2_en_csv_v2_4549832.csv", skip = 4
+  ) %>%
+  clean_names() %>%
+  pivot_longer(
+    cols = -c(country_name, country_code, indicator_name, indicator_code),
+    names_to = "year"
+  ) %>%
+  mutate(year = str_replace_all(year, "x", ""), year = as.integer(year)) %>% 
+  rename(series = indicator_name,
+        series_code = indicator_code)
+```
+
+/ Valido que las dos bases de datos sean iguales para poder unirlas
+
+```{r}
+table(names(table_electricidad) == names(table_education))
+```
+
+NOTA Ahora vamos a unir las dos bases de datos
+
+```{r}
+tabla_ejemplo <- bind_rows(table_education, table_electricidad)
+write_csv(tabla_ejemplo, "electricidad_education.csv")
+```
+
+# Automatización de lectura
+
+```{r}
+library(tidyverse)
+library(janitor)
+
+table_banmun <- 
+list.files("datos_lectura/", pattern = ".csv") %>%
+  map_df(.x = .,
+      .f = function(x = .x) {
+        out = read_csv(file = str_c("datos_lectura/", x), skip = 4) %>%
+          clean_names() %>%
+          pivot_longer(
+            cols = -c(country_name, country_code, indicator_name, indicator_code),
+            names_to = "year"
+          ) %>%
+          mutate(year = str_replace_all(year, "x", ""), year = as.integer(year))
+        
+        return(out)
+      })
+```
+## Exportando las base de datos
+
+```{r}
+#write_rds(table_banmun, "table_banmun.rds", compress = "xz")
+#write_rds(scimago, "table_scimago.rds", compress = "xz")
+```
+
+
