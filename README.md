@@ -7,12 +7,12 @@
 <center>
 
   - Team members: 
-    - [Paola Betancur](https://github.com/orgs/BioAnalyticsCol/people/PABEGA) 
-    - [Edimer David](https://github.com/orgs/BioAnalyticsCol/people/Edimer) 
-    - [Cristian Rivera](https://github.com/orgs/BioAnalyticsCol/people/riveracrist) 
-    - [Sebástian Sanchez](https://github.com/orgs/BioAnalyticsCol/people/sebasanchez07) 
-    - [Jonatan Alberto](https://github.com/orgs/BioAnalyticsCol/people/javelezh) 
-    - [David Morales](https://github.com/orgs/BioAnalyticsCol/people/damoralesra) 
+    - [Paola Betancur](https://github.com/PABEGA) 
+    - [Edimer David](https://github.com/Edimer) 
+    - [Cristian Rivera](https://github.com/riveracrist) 
+    - [Sebástian Sanchez](https://github.com/sebasanchez07) 
+    - [Jonatan Velez](https://github.com/javelezh) 
+    - [David Morales](https://github.com/damoralesra) 
     
 
 ![Relational Model](relational-model-data.png)
